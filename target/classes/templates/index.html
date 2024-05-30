@@ -36,7 +36,7 @@
                      </div>                                                                                                  
                                                       
                      <h2 class="text-center mb-3">新着</h2>
-                     <div class="row row-cols-lg-5 row-cols-2 g-3 mb-5">                                        
+                     <div class="row row-cols-lg-5 row-cols-3 g-3 mb-5">                                        
                          <div class="col" th:each="newHouse : ${newHouses}">
                              <a th:href="@{/houses/__${newHouse.getId()}__}" class="link-dark samuraitravel-card-link">
                                  <div class="card h-100">                                                                        
@@ -173,8 +173,8 @@
                                  </tbody>
                              </table>  
                          </div>
-                     </div>                           
-                                          
+						 <a th:href="@{/ranking}" class="text-center">今月のランキング</a>
+                     </div>                 
                  </div>
              </main>
              
