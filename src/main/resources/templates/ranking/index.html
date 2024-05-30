@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">    
+     <head>
+         <div th:replace="~{fragment :: meta}"></div>   
+              
+         <div th:replace="~{fragment :: styles}"></div>
+           
+         <title>ランキング</title>   
+     </head>
+	 
+	 <body>
+		
+		<div class="samuraitravel-wrapper">
+		            <!-- ヘッダー -->
+		            <div th:replace="~{fragment :: header}"></div>
+	     <main>
+						     <div class="container samuraitravel-container pb-5">
+					                     <div class="row justify-content-center">
+					                         <div class="col-xxl-9 col-xl-10 col-lg-11">
+					                             <nav class="my-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+					                                 <ol class="breadcrumb mb-0"> 
+					                                     <li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>                       
+					                                     <li class="breadcrumb-item active" aria-current="page">ランキング</li>
+					                                 </ol>
+					                             </nav> 
+					
+							
+									
+												 <h1 class="mb-3 text-center">今月の人気ランキング</h1> 
+												 
+												                                        
+												              <div class="mb-3" th:each="Ranking, iterStat : ${Ranking}">
+												                  <a th:href="@{/houses/__${Ranking.getId()}__}" class="link-dark samuraitravel-card-link">
+																	<div class="card h-100">   
+																	    <div class="row g-0">
+																		<div class="col-md-4">
+																			<div class="samuraitravel-rankingravel" th:data-rank="${iterStat.count}">                                                                        
+												                                      <img th:if="${Ranking.getImageName()}" th:src="@{/storage/__${Ranking.getImageName()}__}" class="card-img-top samuraitravel-vertical-card-image" alt="店舗画像">                                     
+												                                      <img th:unless="${Ranking.getImageName()}" th:src="@{/images/noImage.png}" class="card-img-top samuraitravel-vertical-card-image" alt="NO IMAGE">                                                                                                                        
+																			</div>
+																		</div>
+																		    <div class="col-md-8">
+																				<div class="card-body">                                    
+												                             <h3 class="card-title" th:text="${Ranking.getName()}"></h3>
+																			 
+																			 <hr class="mb-3">
+																			 
+																			          <p class="card-text">
+																			 		 <span th:text="${Ranking.getDescription()}"></span>                                            
+																			 		 </p>
+																			 
+												                                          <p class="card-text mb-2">
+												                                              <small class="text-muted" th:text="${Ranking.getAddress()}"></small>                                            
+												                                          </p>
+												                                          <p class="card-text">
+												                                              <span th:text="${#numbers.formatInteger(Ranking.getPrice(), 1, 'COMMA') + '円 / 泊'}"></span>                                            
+												                                          </p>                                    
+												                                      </div>
+												                                  </div>
+																                  </div>
+																	            </div>    
+												                              </a>            
+												                          </div>                                               
+	 											        				</div>
+																	</div>
+																</div>	
+	     </main>
+		 
+		 <!-- フッター -->
+		              <div th:replace="~{fragment :: footer}"></div>
+		          </div>
+				  <div th:replace="~{fragment :: scripts}"></div>
+	 </body>
+</html>
