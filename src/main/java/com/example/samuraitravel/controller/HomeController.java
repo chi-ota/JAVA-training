@@ -18,7 +18,7 @@ public class HomeController {
     }  
     @GetMapping("/")
     public String index(Model model) {
-        List<House> newHouses = houseRepository.findTop10ByOrderByCreatedAtDesc();
+        List<House> newHouses = houseRepository.findTop15ByOrderByCreatedAtDesc();
         model.addAttribute("newHouses", newHouses);  
         return "index";
     }   
