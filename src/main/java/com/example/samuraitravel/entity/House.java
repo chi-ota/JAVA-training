@@ -14,8 +14,7 @@ import lombok.Data;
 @Table(name = "houses")
 @Data
 
-public class House {;
-
+public class House {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -50,5 +49,4 @@ public class House {;
 
     @Column(name = "updated_at", insertable = false, updatable = false)
     private Timestamp updatedAt;
-    
-    }
+}

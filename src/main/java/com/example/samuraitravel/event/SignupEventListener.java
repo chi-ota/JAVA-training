@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.springframework.context.event.EventListener;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+/*import org.springframework.mail.javamail.JavaMailSender;*/
 import org.springframework.stereotype.Component;
 
 import com.example.samuraitravel.entity.User;
@@ -13,13 +13,13 @@ import com.example.samuraitravel.service.VerificationTokenService;
 @Component
 public class SignupEventListener {
 	private final VerificationTokenService verificationTokenService;
-    private final JavaMailSender javaMailSender;
+//    private final JavaMailSender javaMailSender;
     
-    public SignupEventListener(VerificationTokenService verificationTokenService,JavaMailSender mailSender) {
+    public SignupEventListener(VerificationTokenService verificationTokenService) {
         this.verificationTokenService = verificationTokenService;
-	
-        this.javaMailSender = mailSender;
-    }
+	}
+//        this.javaMailSender = mailSender;
+//    }
 
     @EventListener
     private void onSignupEvent(SignupEvent signupEvent) {
@@ -36,6 +36,6 @@ public class SignupEventListener {
         mailMessage.setTo(recipientAddress);
         mailMessage.setSubject(subject);
         mailMessage.setText(message + "\n" + confirmationUrl);
-        javaMailSender.send(mailMessage);
+//        javaMailSender.send(mailMessage);
     }
 }

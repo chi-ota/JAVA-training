@@ -2,7 +2,6 @@ package com.example.samuraitravel.controller;
 
 import java.time.LocalDate;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -33,17 +32,17 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class ReservationController {
-    @Autowired private ReservationRepository reservationRepository;   
-    @Autowired private HouseRepository houseRepository;
-    @Autowired private ReservationService reservationService; 
-    @Autowired private StripeService stripeService;  
+    private final ReservationRepository reservationRepository;   
+    private final HouseRepository houseRepository;
+    private final ReservationService reservationService; 
+    private final StripeService stripeService;  
      
-//    public ReservationController(ReservationRepository reservationRepository, HouseRepository houseRepository, ReservationService reservationService, StripeService stripeService) { 
-//         this.reservationRepository = reservationRepository; 
-//         this.houseRepository = houseRepository;
-//         this.reservationService = reservationService;
-//         this.stripeService = stripeService;
-//     }         
+    public ReservationController(ReservationRepository reservationRepository, HouseRepository houseRepository, ReservationService reservationService, StripeService stripeService) { 
+         this.reservationRepository = reservationRepository; 
+         this.houseRepository = houseRepository;
+         this.reservationService = reservationService;
+         this.stripeService = stripeService;
+     }         
  
      @GetMapping("/reservations")
      public String index(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable, Model model) {

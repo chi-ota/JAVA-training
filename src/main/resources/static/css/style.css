@@ -126,41 +126,6 @@
      max-width: 300px;
  }
 
- .samuraitravel-rankingravel{
-  position: relative;
-  overflow: hidden;
- }
- 
-  .samuraitravel-rankingravel::before{
-	content: "";
-  background-color: #bf0000;
-  display: block;
-  width: 100%;
-  height: 2.5rem;
-  transform: rotate(-45deg);
-  position: absolute;
-  left: -50%;
-  top: 0;
-  }
-  
-  .samuraitravel-rankingravel::after{
-	content: attr(data-rank);
-  color: white;
-  font-size: .6rem;
-  font-weight: 700;
-  line-height: initial;
-  text-align: center;
-  width: 1.5em;
-  position: absolute;
-  left: .3em;
-  top: .3em;
-  }
-  
-  @media screen and (min-width: 768px) {
-  .samuraitravel-rankingravel::after {
-    font-size: .8rem;
-  }
-  }
  
   @media screen and (min-width: 1400px) {
    .samuraitravel-container {
