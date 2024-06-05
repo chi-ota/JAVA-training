@@ -35,7 +35,7 @@
 																	<div class="card h-100">   
 																	    <div class="row g-0">
 																		<div class="col-md-4">
-																			<div class="samuraitravel-rankingravel" th:data-rank="${iterStat.count}">                                                                        
+																			<div class="samuraitravel-rankingravel" th:data-rank="${iterStat.index + 1}">                                                                        
 												                                      <img th:if="${Ranking.getImageName()}" th:src="@{/storage/__${Ranking.getImageName()}__}" class="card-img-top samuraitravel-vertical-card-image" alt="店舗画像">                                     
 												                                      <img th:unless="${Ranking.getImageName()}" th:src="@{/images/noImage.png}" class="card-img-top samuraitravel-vertical-card-image" alt="NO IMAGE">                                                                                                                        
 																			</div>
